@@ -11,14 +11,6 @@ public class recursion_backtracking {
 
         recursion_backtracking obj = new recursion_backtracking();
 
-//		Scanner sc = new Scanner(System.in);
-//		System.out.print("Enter row: ");
-//		int input1 = sc.nextInt();
-//		System.out.print("Enter col: ");
-//		int input2 = sc.nextInt();
-
-//		obj.towerOfHanoi(3, 'A','B','C');
-
         String s = "abc";
         obj.permutations(s, 0, 2);
         obj.count = 0;
@@ -78,7 +70,7 @@ public class recursion_backtracking {
     }
 
 
-    // *************************** Check if aray is a palindrome using recursion ********************************
+    // *************************** Check if array is a palindrome using recursion ********************************
 
 
     boolean palindrome(int arr[], int begin, int end) {
@@ -112,7 +104,7 @@ public class recursion_backtracking {
     }
 
 
-    // *************************** Find the Greates Common Divisor of 2 numbers (GCD using Euclid Formula) ********************************
+    // *************************** Find the Greatest Common Divisor of 2 numbers (GCD using Euclid Formula) ********************************
 
 
     int GCD(int num1, int num2) {
@@ -174,25 +166,29 @@ public class recursion_backtracking {
     void permutations(String str, int l, int r) {
         if (l == r) {
             count++;
-            System.out.println(str);
-            System.out.println("***** Swap number = " + count);
+            System.out.println("Final answer "+ count+ " = " +str);
+//            System.out.println("***** Swap number = " + count);
             System.out.println();
         } else {
             for (int i = l; i <= r; i++) {
-                str = swap(str, l, i);
 
                 System.out.println("First swap");
                 System.out.println(str + ", l = " + l + ", i = " + i);
-                System.out.println();
+                str = swap(str, l, i);
+                System.out.println("New str = "+ str);
+
+
                 System.out.println("Calling Permutation");
                 System.out.println();
                 permutations(str, l + 1, r);
 
-                str = swap(str, l, i);
 
                 System.out.println("Second Swap");
                 System.out.println(str + ", l = " + l + ", i = " + i);
-                System.out.println();
+                str = swap(str, l, i);
+                System.out.println("New str = "+ str);
+
+
             }
         }
 
